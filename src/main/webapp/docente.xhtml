@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Registro de Docentes</h2>
+		<h:form>
+
+			<h:outputLabel value="Id" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{docenteController.d.idDocente}" required="true" />
+
+
+			<h:outputLabel value="Nombre:" for="nombre"
+				styleClass="control-label" />
+			<p:inputText id="nombre" styleClass="form-control"
+				value="#{docenteController.d.nombre}" required="true" />
+
+			<h:outputLabel value="Apellido:" for="apellido"
+				styleClass="control-label" />
+			<p:inputText id="apellido" styleClass="form-control"
+				value="#{docenteController.d.apellido}" required="true" />
+
+
+			<h:outputLabel value="DNI: " for="dni" styleClass="control-label" />
+			<p:inputText id="dni" styleClass="form-control"
+				value="#{docenteController.d.dni}" required="true" />
+
+			<h:outputLabel value="Puntaje: " for="puntaje" styleClass="control-label" />
+			<p:inputText id="puntaje" styleClass="form-control"
+				value="#{docenteController.d.puntaje}" required="true" />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{docenteController.insert()}"
+				action="listDocente?faces-redirect=true" update="@form" />
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+
+</html>
