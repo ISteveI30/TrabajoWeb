@@ -1,19 +1,13 @@
 package pe.edu.upc.entidades;
 
-<<<<<<< HEAD
 import java.util.Objects;
 
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import javax.persistence.Table;
 
 @Entity
@@ -24,17 +18,12 @@ public class FavoritoDocente {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-<<<<<<< HEAD
 	@ManyToOne
 	@JoinColumn(name = "idDocente", nullable=false)
 	private Docente docente;
 	
 	@ManyToOne
 	@JoinColumn(name = "idEstudiante", nullable=true)
-=======
-	private Docente docente;
-	
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	private Estudiante estudiante;
 
 	
@@ -71,7 +60,6 @@ public class FavoritoDocente {
 
 	public void setEstudiante(Estudiante estudiante) {
 		this.estudiante = estudiante;
-<<<<<<< HEAD
 	}
 
 	@Override
@@ -89,8 +77,6 @@ public class FavoritoDocente {
 			return false;
 		FavoritoDocente other = (FavoritoDocente) obj;
 		return id == other.id;
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	}	
 	
 }

@@ -5,10 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import pe.edu.upc.dao.FaCursoDao;
-<<<<<<< HEAD
 import pe.edu.upc.entidades.Curso;
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import pe.edu.upc.entidades.FaCurso;
 import pe.edu.upc.service.FaCursoService;
 
@@ -31,7 +28,6 @@ public class FaCursoServiceImpl implements FaCursoService {
 		// TODO Auto-generated method stub
 		fDao.delete(idFavorito);
 	}
-<<<<<<< HEAD
 	@Override
 	public Curso agregar(int idCurso) {
 		// TODO Auto-generated method stub
@@ -41,7 +37,5 @@ public class FaCursoServiceImpl implements FaCursoService {
 	public List<FaCurso> findByNameFavCurso(FaCurso faCurso) {
 		return fDao.findByNameFavCurso(faCurso);
 	}
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	
 }

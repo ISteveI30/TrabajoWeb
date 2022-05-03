@@ -52,7 +52,6 @@ public class PromocionImpl implements PromocionDao{
 		}
 	}
 	
-<<<<<<< HEAD
 	@Transactional
 	@Override
 	public void update(Promocion p) {
@@ -83,6 +82,4 @@ public class PromocionImpl implements PromocionDao{
 	}
 	
 	
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 }

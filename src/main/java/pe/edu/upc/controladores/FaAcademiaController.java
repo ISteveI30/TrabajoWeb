@@ -8,14 +8,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-<<<<<<< HEAD
 import pe.edu.upc.entidades.Academia;
 import pe.edu.upc.entidades.FaAcademia;
 import pe.edu.upc.service.AcademiaService;
-=======
-import pe.edu.upc.entidades.FaAcademia;
-import pe.edu.upc.entidades.FavoritoDocente;
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import pe.edu.upc.service.FaAcademiaService;
 
 @Named
@@ -26,7 +21,6 @@ public class FaAcademiaController {
 	private FaAcademiaService  fService;
 	private FaAcademia favorito;
 	List<FaAcademia> listaFavoritos;
-<<<<<<< HEAD
 	
 	@Inject
 	private AcademiaService  aService;
@@ -34,23 +28,15 @@ public class FaAcademiaController {
 	List<Academia> listaAcademias;
 	
 	
-=======
-
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	// constructor
 	@PostConstruct
 	public void init() {
 		this.listaFavoritos = new ArrayList<FaAcademia>();
-<<<<<<< HEAD
 		this.listaAcademias = new ArrayList<Academia>();
 		this.favorito = new FaAcademia();
 		this.academia = new Academia();
 		this.list();
 		this.listAcademias();
-=======
-		this.favorito = new FaAcademia();
-		this.list();
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	}
 
 	// métodos
@@ -77,16 +63,11 @@ public class FaAcademiaController {
 		}
 	}
 
-<<<<<<< HEAD
 	public void delete(FaAcademia favorito) {
-=======
-	public void delete(FavoritoDocente favorito) {
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 		try {
 			fService.delete(favorito.getId());
 			this.list();
 		} catch (Exception e) {
-<<<<<<< HEAD
 			System.out.println("Error al eliminar en el controller ");
 		}
 	}
@@ -106,9 +87,6 @@ public class FaAcademiaController {
 			listaAcademias = aService.list();
 		} catch (Exception e) {
 			System.out.println("Error al listar en controller academia");
-=======
-			System.out.println("Error al eliminar en elcontroller ");
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 		}
 	}
 
@@ -136,7 +114,6 @@ public class FaAcademiaController {
 		this.listaFavoritos = listaFavoritos;
 	}
 
-<<<<<<< HEAD
 	public List<Academia> getListaAcademias() {
 		return listaAcademias;
 	}
@@ -145,7 +122,4 @@ public class FaAcademiaController {
 		this.listaAcademias = listaAcademias;
 	}
 
-=======
-	
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 }

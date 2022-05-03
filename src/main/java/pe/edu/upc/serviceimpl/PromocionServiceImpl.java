@@ -31,7 +31,6 @@ public class PromocionServiceImpl implements PromocionService {
 		pDao.delete(idPromocion);
 	}
 
-<<<<<<< HEAD
 	@Override
 	public void update(Promocion p) {
 		// TODO Auto-generated method stub
@@ -44,6 +43,4 @@ public class PromocionServiceImpl implements PromocionService {
 		return pDao.findByNamePromocion(p);
 	}
 	
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 }

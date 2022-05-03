@@ -9,10 +9,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.FaAcademiaDao;
-<<<<<<< HEAD
 import pe.edu.upc.entidades.Academia;
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import pe.edu.upc.entidades.FaAcademia;
 
 public class FaAcademiaImplDao implements FaAcademiaDao{
@@ -55,7 +52,6 @@ public class FaAcademiaImplDao implements FaAcademiaDao{
 			System.out.println("Error al eliminar en el dao");
 		}
 	}
-<<<<<<< HEAD
 
 	@Transactional
 	@Override
@@ -70,8 +66,6 @@ public class FaAcademiaImplDao implements FaAcademiaDao{
 		}
 		return academia;
 	}
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	
 	
 }

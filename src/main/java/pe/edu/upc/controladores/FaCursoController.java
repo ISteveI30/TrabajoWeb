@@ -8,14 +8,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-<<<<<<< HEAD
 import pe.edu.upc.entidades.Curso;
 import pe.edu.upc.entidades.FaCurso;
 import pe.edu.upc.service.CursoService;
-=======
-import pe.edu.upc.entidades.FaCurso;
-import pe.edu.upc.entidades.FavoritoDocente;
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import pe.edu.upc.service.FaCursoService;
 
 @Named
@@ -28,7 +23,6 @@ public class FaCursoController {
 	private FaCurso favorito;
 	List<FaCurso> listaFavoritos;
 
-<<<<<<< HEAD
 	@Inject
 	private CursoService  cService;
 	private Curso curso;
@@ -43,14 +37,6 @@ public class FaCursoController {
 		this.listaCursos = new ArrayList<Curso>();
 		this.list();
 		this.listCursos();
-=======
-	// constructor
-	@PostConstruct
-	public void init() {
-		this.listaFavoritos = new ArrayList<FaCurso>();
-		this.favorito = new FaCurso();
-		this.list();
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	}
 
 	// métodos
@@ -60,11 +46,8 @@ public class FaCursoController {
 		return null;
 	}
 
-<<<<<<< HEAD
 	
 	
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	public void insert() {
 		try {
 			fService.insert(favorito);
@@ -82,7 +65,6 @@ public class FaCursoController {
 		}
 	}
 
-<<<<<<< HEAD
 	public void delete(FaCurso favorito) {
 		try {
 			fService.delete(favorito.getId());
@@ -125,14 +107,6 @@ public class FaCursoController {
 			listaFavoritos = fService.findByNameFavCurso(this.getFavorito());
 		} catch (Exception e) {
 			System.out.println("Error al buscar en el controller curso");
-=======
-	public void delete(FavoritoDocente favorito) {
-		try {
-			fService.delete(favorito.getId());
-			this.list();
-		} catch (Exception e) {
-			System.out.println("Error al eliminar en elcontroller ");
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 		}
 	}
 
@@ -159,7 +133,6 @@ public class FaCursoController {
 	public void setListaFavoritos(List<FaCurso> listaFavoritos) {
 		this.listaFavoritos = listaFavoritos;
 	}
-<<<<<<< HEAD
 
 	public List<Curso> getListaCursos() {
 		return listaCursos;
@@ -177,7 +150,5 @@ public class FaCursoController {
 		this.curso = curso;
 	}
 	
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	
 }

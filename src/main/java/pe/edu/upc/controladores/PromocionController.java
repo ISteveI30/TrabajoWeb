@@ -8,15 +8,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-<<<<<<< HEAD
 import pe.edu.upc.entidades.Curso;
 import pe.edu.upc.entidades.Docente;
 import pe.edu.upc.entidades.Promocion;
 import pe.edu.upc.service.CursoService;
 import pe.edu.upc.service.IDocenteService;
-=======
-import pe.edu.upc.entidades.Promocion;
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import pe.edu.upc.service.PromocionService;
 
 @Named
@@ -24,7 +20,6 @@ import pe.edu.upc.service.PromocionService;
 public class PromocionController {
 
 	@Inject
-<<<<<<< HEAD
 	private PromocionService pService;
 	private Promocion promocion;
 	List<Promocion> listaPromocion;
@@ -50,19 +45,6 @@ public class PromocionController {
 
 	}
 
-=======
-	private PromocionService  pService;
-	private Promocion promocion;
-	List<Promocion> listaPromocion;
-
-	// constructor
-	@PostConstruct
-	public void init() {
-		this.listaPromocion = new ArrayList<Promocion>();
-		this.promocion = new Promocion();
-		this.list();
-	}
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	public void insert() {
 		try {
 			pService.insert(promocion);
@@ -79,7 +61,6 @@ public class PromocionController {
 		}
 	}
 
-<<<<<<< HEAD
 	public void listDocentes() {
 		try {
 			listaDocente = docService.list();
@@ -98,8 +79,6 @@ public class PromocionController {
 		}
 	}
 
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	public void delete(Promocion promocion) {
 		try {
 			pService.delete(promocion.getIdPromocion());
@@ -108,7 +87,6 @@ public class PromocionController {
 			System.out.println("Error al eliminar en elcontroller");
 		}
 	}
-<<<<<<< HEAD
 
 	public String updateProm(Promocion promocion) {
 		this.setPromocion(promocion);
@@ -186,31 +164,4 @@ public class PromocionController {
 		this.listaDocente = listaDocente;
 	}
 
-=======
-	
-	public String newPromocion() {
-
-		this.setPromocion(new Promocion());
-		return null;
-	}
-	public PromocionService getpService() {
-		return pService;
-	}
-	public void setpService(PromocionService pService) {
-		this.pService = pService;
-	}
-	public Promocion getPromocion() {
-		return promocion;
-	}
-	public void setPromocion(Promocion promocion) {
-		this.promocion = promocion;
-	}
-	public List<Promocion> getListaPromocion() {
-		return listaPromocion;
-	}
-	public void setListaPromocion(List<Promocion> listaPromocion) {
-		this.listaPromocion = listaPromocion;
-	}
-	
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 }

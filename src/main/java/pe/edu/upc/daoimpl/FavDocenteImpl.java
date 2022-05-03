@@ -8,10 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import pe.edu.upc.dao.FavDocenteDao;
-<<<<<<< HEAD
 import pe.edu.upc.entidades.Docente;
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import pe.edu.upc.entidades.FavoritoDocente;
 
 public class FavDocenteImpl implements FavDocenteDao {
@@ -54,7 +51,6 @@ public class FavDocenteImpl implements FavDocenteDao {
 			System.out.println("Error al eliminar en el dao");
 		}
 	}
-<<<<<<< HEAD
 
 	@Override
 	public Docente agregar(int idDocente) {
@@ -68,7 +64,5 @@ public class FavDocenteImpl implements FavDocenteDao {
 		}
 		return docente;
 	}
-=======
->>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	
 }
