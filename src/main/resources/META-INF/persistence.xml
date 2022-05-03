@@ -12,7 +12,7 @@
 		<class>pe.edu.upc.entidades.Docente</class>
 		<class>pe.edu.upc.entidades.Carrera</class>
 		<class>pe.edu.upc.entidades.Academia</class>
-		<class>pe.edu.upc.entidades.Sede</class>
+
 		<!-- <class>pe.edu.upc.entidades.Docente</class> -->
 		<properties>
 			<property
