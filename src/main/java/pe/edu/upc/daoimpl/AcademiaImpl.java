@@ -52,5 +52,19 @@ public class AcademiaImpl implements IAcademiaDao {
 			System.out.println("Error al eliminar en el dao");
 		}
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Academia> findByNameAcademia(Academia academia) {
+		List<Academia> lista=new ArrayList<Academia>();
+		try {
+		Query q=em.createQuery("from Academia academia where academia.nombre like ?1");
+		q.setParameter(1, "%"+academia.getNombre()+"%");
+		lista=(List<Academia>)q.getResultList();
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el dao de curso");
+		}
+		return lista;
+	}
 		
 }

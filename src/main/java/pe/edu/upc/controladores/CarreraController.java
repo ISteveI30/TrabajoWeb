@@ -61,6 +61,30 @@ public class CarreraController {
 			System.out.println("Error al eliminar en elcontroller carrera");
 		}
 	}
+	
+	public void findByNameCarrera() {
+
+		try {
+			listaCarrera = cService.findByNameCarrera(this.getCarrera());
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el controller curso");
+		}
+	}
+	
+	public String UpdatePre(Carrera carrera) {
+		this.setCarrera(carrera);
+		return "carrerasUpdate.xhtml";
+	}
+	
+	public void update() {
+		
+		try {
+			cService.update(this.carrera);
+		} catch (Exception e) {
+			System.out.println("Error al modificar en el controlador de carrera");
+		}
+	}
+	
 
 	public Carrera getCarrera() {
 		return carrera;

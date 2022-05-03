@@ -9,46 +9,90 @@
 
 	<ui:define name="content">
 
-		<h2>Lista de Cursos</h2>
-		<h:form>
-			<p:dataTable id="listaCursos" var="cu"
-				value="#{cursoController.listaCursos}" paginator="true"
-				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
-				emptyMessage="No existen registros" rowsIndexVar="item">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 mt-3">
+					<h:form>
+
+						<p:toolbar>
+							<p:toolbarGroup>
+								<p:commandButton value="Nuevo Curso" icon="pi pi-plus"
+									action="#{cursoController.newCurso()}"
+									styleClass="ui-button-success" style="margin-right: .5rem" />
+
+							</p:toolbarGroup>
+
+						</p:toolbar>
+
+						<div class="row">
+							<div class="col-sm-4">
+								<h:outputLabel value="Ingrese nombre del curso a buscar:"
+									for="curso" styleClass="control-label" />
+
+								<p:inputText id="curso" value="#{cursoController.curso.nombre}"
+									styleClass="form-control" />
+								<p:commandButton value="Buscar"
+									actionListener="#{cursoController.findByName()}"
+									update="listaCursos" />
+
+							</div>
+
+						</div>
+						<p:dataTable id="listaCursos" var="cu"
+							value="#{cursoController.listaCursos}" paginator="true"
+							paginatorPosition="bottom" rows="3"
+							emptyMessage="No hay cursos registrados" rowsIndexVar="item">
+							<f:facet name="header">
+                			Registro de Cursos
+           					 </f:facet>
+
+							<p:column headerText="Nombre">
+								<h:outputText value="#{cu.nombre}" />
+							</p:column>
+
+							<p:column headerText="Fecha de culminación">
+								<h:outputText value="#{cu.culminacion}">
+									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Precio">
+								<h:outputText value="S/. #{cu.precio}.00" />
+							</p:column>
+
+							<p:column headerText="Vacantes">
+								<h:outputText value="#{cu.vacantes}" />
+							</p:column>
+
+							<p:column headerText="Carrera">
+								<h:outputText value="#{cu.carrera.nombre}" />
+							</p:column>
+
+							<p:column headerText="Duración">
+								<h:outputText value="#{cu.duracion.nombre}" />
+							</p:column>
+
+							<p:column headerText="Operación">
+								<h:commandLink action="listCurso"
+									actionListener="#{cursoController.delete(cu)}">
+									Eliminar
+								</h:commandLink>
+							</p:column>
+							<p:column headerText="Operación">
+								<h:commandLink action="#{cursoController.updateCurso(cu)}"
+									class="mt-3" value="Editar" />
+
+							</p:column>
+
+						</p:dataTable>
+					</h:form>
+
+				</div>
+
+			</div>
+		</div>
 
 
-				<p:column headerText="Id">
-					<h:outputText value="#{cu.idCurso}" />
-				</p:column>
-
-				<p:column headerText="Nombre">
-					<h:outputText value="#{cu.nombre}" />
-				</p:column>
-
-				<p:column headerText="Fecha de culminaon">
-					<h:outputText value="#{cu.culminacion}">
-						<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
-					</h:outputText>
-				</p:column>
-			
-				<p:column headerText="Precio">
-					<h:outputText value="#{cu.precio}" />
-				</p:column>
-				
-				<p:column headerText="Vacantes">
-					<h:outputText value="#{cu.vacantes}" />
-				</p:column>
-				
-				
-				<p:column headerText="Operación">
-					<h:commandLink action="listCurso"
-						actionListener="#{cursoController.delete(cu)}">
-					Eliminar
-					</h:commandLink>
-				</p:column>
-
-			</p:dataTable>
-		</h:form>
 	</ui:define>
 
 </ui:composition>

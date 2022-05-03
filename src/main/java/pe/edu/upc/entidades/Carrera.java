@@ -1,5 +1,7 @@
 package pe.edu.upc.entidades;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,14 +17,12 @@ public class Carrera {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idCarrera;
 
-	@Column(name = "nombre", nullable = false, length = 35)
+	@Column(name = "nombre", nullable = false, length = 50)
 	private String nombre;
-
-	
+		
 	public Carrera() {
 		super();
 	}
-
 
 	public Carrera(int idCarrera, String nombre) {
 		super();
@@ -30,25 +30,37 @@ public class Carrera {
 		this.nombre = nombre;
 	}
 
-
 	public int getIdCarrera() {
 		return idCarrera;
 	}
-
 
 	public void setIdCarrera(int idCarrera) {
 		this.idCarrera = idCarrera;
 	}
 
-
 	public String getNombre() {
 		return nombre;
 	}
-
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(idCarrera);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Carrera other = (Carrera) obj;
+		return idCarrera == other.idCarrera;
+	}
+
 }

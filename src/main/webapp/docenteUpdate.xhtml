@@ -5,16 +5,13 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head></h:head>
+<h:head>
+	<link rel="stylesheet" href="resources/css/docenteStyle.css" />
+</h:head>
 <ui:composition template="master.xhtml">
 	<ui:define name="content">
-		<h2>Registro de Docentes</h2>
+		<h2>Modificar Docente</h2>
 		<h:form>
-
-			<h:outputLabel value="Id" for="id" styleClass="control-label" />
-			<p:inputText id="id" styleClass="form-control"
-				value="#{docenteController.d.idDocente}" required="true" />
-
 
 			<h:outputLabel value="Nombre:" for="nombre"
 				styleClass="control-label" />
@@ -31,12 +28,9 @@
 			<p:inputText id="dni" styleClass="form-control"
 				value="#{docenteController.d.dni}" required="true" />
 
-			<h:outputLabel value="Puntaje: " for="puntaje" styleClass="control-label" />
-			<p:inputText id="puntaje" styleClass="form-control"
-				value="#{docenteController.d.puntaje}" required="true" />
 
-			<p:commandButton value="Grabar"
-				actionListener="#{docenteController.insert()}"
+			<p:commandButton value="Grabar Cambios" class="mt-3"
+				actionListener="#{docenteController.update()}"
 				action="listDocente?faces-redirect=true" update="@form" />
 
 		</h:form>

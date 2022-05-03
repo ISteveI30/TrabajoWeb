@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/master.xhtml">
+
+	<ui:define name="content">
+		<div class="container mt-3">
+			<h:form>
+				<div class="row">
+					<div class="col-sm-4">
+						<h:outputLabel value="Ingrese el titulo de la promocion a buscar:"
+							for="promocion" styleClass="control-label" />
+						<p:inputText id="promocion"
+							value="#{promocionController.promocion.titulo}"
+							styleClass="form-control" />
+						<p:commandButton value="Buscar"
+							actionListener="#{promocionController.findByNamePromocion()}"
+							update="listaProm" />
+					</div>
+				</div>
+
+				<p:toolbar>
+					<p:toolbarGroup>
+						<p:commandButton value="Nueva Publicación" icon="pi pi-plus"
+							action="#{promocionController.newPublicacion()}"
+							styleClass="ui-button-success" style="margin-right: .5rem" />
+
+					</p:toolbarGroup>
+
+				</p:toolbar>
+
+				<p:dataTable id="listaProm" var="prom"
+					value="#{promocionController.listaPromocion}" paginator="true"
+					paginatorPosition="bottom" rows="5"
+					emptyMessage="No existen registros" rowsIndexVar="item">
+					<f:facet name="header">
+                	Lista de Publicaciones
+           		</f:facet>
+
+					<p:column headerText="Titulo">
+						<h:outputText value="#{prom.titulo}" />
+					</p:column>
+
+					<p:column headerText="Descripción">
+						<h:outputText value="#{prom.descripcion}" />
+					</p:column>
+
+					<p:column headerText="Docente">
+						<h:outputText
+							value="#{prom.docente.nombre} #{prom.docente.apellido}" />
+					</p:column>
+
+					<p:column headerText="Curso">
+						<h:outputText value="#{prom.curso.nombre}" />
+					</p:column>
+
+
+
+					<p:column headerText="delete">
+						<h:commandLink action="listCarrera"
+							actionListener="#{promocionController.delete(prom)}">
+					Eliminar
+					</h:commandLink>
+					</p:column>
+					<p:column headerText="edit">
+						<h:commandLink action="#{promocionController.updateProm(prom)}"
+							value="Modificar" />
+					</p:column>
+
+				</p:dataTable>
+			</h:form>
+		</div>
+	</ui:define>
+
+</ui:composition>
+</html>
+

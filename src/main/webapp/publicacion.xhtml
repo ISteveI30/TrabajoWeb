@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Registro de Publicación</h2>
+		<h:form>
+
+			<h:outputLabel value="Titulo" for="titulo" styleClass="control-label" />
+			<p:inputText id="titulo" styleClass="form-control"
+				value="#{promocionController.promocion.titulo}" required="true" />
+
+			<h:outputLabel value="Descripcion" for="descripcion"
+				styleClass="control-label" />
+			<p:inputText id="descripcion" styleClass="form-control"
+				value="#{promocionController.promocion.descripcion}" required="true" />
+
+			<h:outputLabel value="Docente" for="cboDocente"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboDocente"
+				value="#{promocionController.promocion.docente}"
+				converter="omnifaces.SelectItemsConverter"
+				styleClass="form-control">
+				<f:selectItems value="#{promocionController.listaDocente}" var="d"
+					itemLabel="#{d.nombre} #{d.apellido}" itemValue="#{d}" />
+			</p:selectOneMenu>
+
+			<h:outputLabel value="Curso" for="cboCurso"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboCurso"
+				value="#{promocionController.promocion.curso}"
+				converter="omnifaces.SelectItemsConverter"
+				styleClass="form-control">
+				<f:selectItems value="#{promocionController.listaCurso}" var="c"
+					itemLabel="#{c.nombre}" itemValue="#{c}" />
+			</p:selectOneMenu>
+
+			<p:commandButton value="Grabar" class="mt-3"
+				actionListener="#{promocionController.insert()}"
+				action="listPublicacion?faces-redirect=true" update="@form" />
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+
+</html>

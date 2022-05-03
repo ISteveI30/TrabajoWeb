@@ -10,4 +10,8 @@ public interface IDocenteDao {
 	public List<Docente> list();
 	
 	public void delete(int idDocente);
+	
+	public void update(Docente d);
+	
+	public List<Docente> findByNameDocente(Docente d);
 }

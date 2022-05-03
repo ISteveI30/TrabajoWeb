@@ -6,77 +6,44 @@
 
 <h:head>
 	<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"></link>
+
 </h:head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light"> <a
-		class="navbar-brand" href="#">U-Help</a>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light "> <a
+		class="navbar-brand ms-5" href="#">U-Help</a>
 
 	<div class="collapse navbar-collapse" id="navbarNav">
-		<ul class="navbar-nav">
-			<li class="nav-item active"><a class="nav-link"
+		<ul class="navbar-nav ms-5">
+			<li class="nav-item active"><a class="nav-link ms-5"
 				href="panel.xhtml">Inicio </a></li>
 
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-				role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Cursos </a>
-				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="curso.xhtml">Registrar
-							Cursos</a></li>
-					<li><a class="dropdown-item" href="listCurso.xhtml">Listar
-							Cursos</a></li>
-				</ul></li>
+			<li class="nav-item"><a class="nav-link" href="listCurso.xhtml">Cursos</a></li>
+
+			<li class="nav-item"><a class="nav-link"
+				href="listDocente.xhtml">Docentes</a></li>
+
+			<li class="nav-item"><a class="nav-link"
+				href="listPublicacion.xhtml">Publicaciones</a></li>
 
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 				role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Docentes </a>
+					Otros </a>
 				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="docente.xhtml">Registrar
-							Docentes</a></li>
-					<li><a class="dropdown-item" href="listDocente.xhtml">Listar
-							Docentes</a></li>
+					<li><a class="dropdown-item" href="listCarreras.xhtml">Carreras
+					</a></li>
+					<li><a class="dropdown-item" href="listDuracion.xhtml">Duración
+					</a></li>
 				</ul></li>
 
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-				role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Luis Guardales </a>
-				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="Estudiante.xhtml">Registrar
-							Estudiantes</a></li>
-					<li><a class="dropdown-item" href="listEstudiante.xhtml">Listar
-							Estudiantes</a></li>
-				</ul></li>
 
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-				role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Alexander Huamán </a>
-				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="duracion.xhtml">Registrar
-							Duración de curso</a></li>
-					<li><a class="dropdown-item" href="listDuracion.xhtml">Listar
-							Duración</a></li>
-					<li><a class="dropdown-item" href="carrera.xhtml">Registrar
-							Carrera</a></li>
-					<li><a class="dropdown-item" href="listCarrera.xhtml">Listar
-							Carrera</a></li>
-				</ul></li>
-
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-				role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Publicaciones </a>
-				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="#">Registrar Docentes</a></li>
-					<li><a class="dropdown-item" href="#">Listar Docentes</a></li>
-				</ul></li>
 
 		</ul>
-		
-	</div><div class="float-end me-5">
-		<label>Perfil</label></div>
+
+	</div>
+	<div class="float-end me-5">
+		<a class="nav-link" href="perfilAcademia.xhtml">Perfil</a>
+	</div>
 	</nav>
 
 	<div class="container">

@@ -8,32 +8,75 @@
 <ui:composition template="/master.xhtml">
 
 	<ui:define name="content">
+		<div class="container">
 
-		<h2>Lista de duración</h2>
-		<h:form>
-			<p:dataTable id="listaDuracion" var="du"
-				value="#{duracionController.listaDuracion}" paginator="true"
-				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
-				emptyMessage="No existen registros" rowsIndexVar="item">
+			<div class="row">
+				<div class="col-8 mt-4">
+					<h:form>	
+					
+					<div class="row">
+                            <div class="col-sm-4">
+                                <h:outputLabel value="Ingrese nombre del tipo de duracion a buscar:"
+                                    for="duracion" styleClass="control-label" />
+
+                                <p:inputText id="curso" value="#{duracionController.duracion.nombre}"
+                                    styleClass="form-control" />
+                                <p:commandButton value="Buscar"
+                                    actionListener="#{duracionController.findByNameCarrera()}"
+                                    update="listaDuracion" />
+
+                            </div>
+
+                        </div>
+                        	
+						<p:dataTable id="listaDuracion" var="du"
+							value="#{duracionController.listaDuracion}" paginator="true"
+							paginatorPosition="bottom" 
+							rows="6" emptyMessage="No existen registros" rowsIndexVar="item">
+							<f:facet name="header">
+                			Lista de Duración
+           					 </f:facet>
+
+							<p:column headerText="Periodo">
+								<h:outputText value="#{du.nombre}" />
+							</p:column>
+
+							<p:column headerText="Operación">
+								<h:commandLink action="listDuracion"
+									actionListener="#{duracionController.delete(du)}">
+									Eliminar
+								</h:commandLink>
+							</p:column>
+							
+							<p:column headerText="">
+								<h:commandLink action="#{duracionController.UpdatePre(du)}">
+										Editar
+								</h:commandLink>
+							</p:column>
+						</p:dataTable>
+					</h:form>
+
+				</div>
+				<div class="col-4 mt-4 border border-primary">
+
+					<h3 class="ms-5 mt-4 mb-3">Agregar Duración</h3>
+					<h:form>
+						<h:outputLabel value="Periodo" for="nombre"
+							styleClass="control-label" />
+						<p:inputText id="nombre" styleClass="form-control"
+							value="#{duracionController.duracion.nombre}" required="true" />
+
+						<p:commandButton value="Grabar" class="mt-4"
+							actionListener="#{duracionController.insert()}"
+							action="listDuracion?faces-redirect=true" update="@form" />
 
 
-				<p:column headerText="Id">
-					<h:outputText value="#{du.idDuracion}" />
-				</p:column>
+					</h:form>
 
-				<p:column headerText="Periodo">
-					<h:outputText value="#{du.nombre}" />
-				</p:column>
+				</div>
+			</div>
+		</div>
 
-				<p:column headerText="Operación">
-					<h:commandLink action="listDocente"
-						actionListener="#{duracionController.delete(du)}">
-					Eliminar
-					</h:commandLink>
-				</p:column>
-
-			</p:dataTable>
-		</h:form>
 	</ui:define>
 
 </ui:composition>

@@ -1,5 +1,7 @@
 package pe.edu.upc.entidades;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,17 +20,17 @@ public class Estudiante {
 	private String nombre;
 	@Column(name = "apellido", nullable = false, length = 35)
 	private String apellido;
-	@Column(name = "password", nullable =false , length = 20)
+	@Column(name = "password", nullable =false , length = 40)
 	private String password;
-	@Column(name = "correo", nullable =false , length = 35)
+	@Column(name = "correo", nullable =false , length = 50)
 	private String correo;
-	
+	@Column(name = "tipo", nullable = true)
+	private int tipo;
 	public Estudiante() {
 		super();
 		// TODO Auto-generated constructor stub
+		this.tipo = 1;
 	}
-	
-	
 
 	public Estudiante(int idEstudiante, String nombre, String apellido, String password, String correo) {
 		super();
@@ -38,8 +40,6 @@ public class Estudiante {
 		this.password = password;
 		this.correo = correo;
 	}
-
-
 
 	public int getIdEstudiante() {
 		return idEstudiante;
@@ -80,6 +80,30 @@ public class Estudiante {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idEstudiante);
+	}
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Estudiante other = (Estudiante) obj;
+		return idEstudiante == other.idEstudiante;
+	}
 	
 }

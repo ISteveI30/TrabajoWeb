@@ -25,7 +25,6 @@ public class DocenteImplDao implements IDocenteDao {
 		}
 	}
 
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Docente> list() {
@@ -51,4 +50,34 @@ public class DocenteImplDao implements IDocenteDao {
 
 	}
 
+	@Transactional
+	@Override
+	public void update(Docente d) {
+		// TODO Auto-generated method stub
+
+		try {
+			em.merge(d);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al modificar en el dao de vacunacion");
+		}
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Docente> findByNameDocente(Docente d) {
+		List<Docente> lista= new ArrayList<Docente>();
+		try {
+			Query q= em.createQuery("from Docente d where d.nombre like ?1");
+			q.setParameter(1,"%"+d.getNombre()+"%");
+			lista= (List<Docente>) q.getResultList(); 
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al buscar docente en el dao ");
+		}
+		return lista;
+	}
+
+	
 }

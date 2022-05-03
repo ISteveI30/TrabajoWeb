@@ -13,4 +13,7 @@ public interface DuracionService {
 
 	public void delete(int idDuracion);
 	
+	public List <Duracion> findByNameDuracion(Duracion duracion);
+
+	public void update(Duracion duracion);
 }

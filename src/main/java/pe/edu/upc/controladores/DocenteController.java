@@ -14,29 +14,28 @@ import pe.edu.upc.service.IDocenteService;
 @Named
 @RequestScoped
 public class DocenteController {
-	
+
 	@Inject
 	private IDocenteService dService;
-	
+
 	private Docente d;
 	List<Docente> listaDocentes;
 
-	//constructor
+	// constructor
 	@PostConstruct
 	public void init() {
 		this.listaDocentes = new ArrayList<Docente>();
 		this.d = new Docente();
 		this.list();
 	}
-	
-	
-	//métodos
-	public String newDocente() {
+
+	// métodos
+	/*public String newDocente() {
 
 		this.setD(new Docente());
 		return "docente.xhtml";
-	}
-	
+	}*/
+
 	public void insert() {
 		try {
 			dService.insert(d);
@@ -45,16 +44,16 @@ public class DocenteController {
 			System.out.println("Error al insertar en el controller docente");
 		}
 	}
-	
+
 	private void list() {
 		try {
 			listaDocentes = dService.list();
 		} catch (Exception e) {
 			System.out.println("Error al listar en controller docente");
 		}
-		
+
 	}
-	
+
 	public void delete(Docente doc) {
 		try {
 			dService.delete(doc.getIdDocente());
@@ -63,9 +62,32 @@ public class DocenteController {
 			System.out.println("Error al eliminar en el controller persona");
 		}
 	}
+
+	public String updateDocente(Docente d) {
+		this.setD(d);
+		return "docenteUpdate.xhtml";
+	}
+
+	//Metodo buscar Docente por nombre
+		public void findByNameDocente() {
+			try {
+				listaDocentes= dService.findByNameDocente(this.getD());
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Error al buscar docente en el controlador");
+			}
+		}
 	
-	//getters and setters
-	
+	public void update() {
+		try {
+			dService.update(this.d);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+	}
+	// getters and setters
+
 	public Docente getD() {
 		return d;
 	}

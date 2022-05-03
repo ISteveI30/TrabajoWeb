@@ -51,5 +51,29 @@ public class CarreraImpl implements CarreraDao {
 			System.out.println("Error al eliminar en el dao");
 		}
 	}
-	
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Carrera> findByNameCarrera(Carrera carrera) {
+		List<Carrera> lista = new ArrayList<Carrera>();
+		try {
+			Query q = em.createQuery("from Carrera carrera where carrera.nombre like ?1");
+			q.setParameter(1, "%" + carrera.getNombre() + "%");
+			lista = (List<Carrera>) q.getResultList();
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el dao de carrera");
+		}
+		return lista;
+	}
+
+	@Transactional
+	@Override
+	public void update(Carrera carrera) {
+		try {
+			em.merge(carrera);
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el dao de carrera");
+		}
+	}
+
 }

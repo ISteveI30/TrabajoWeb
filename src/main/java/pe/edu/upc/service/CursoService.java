@@ -12,4 +12,10 @@ public interface CursoService {
 
 	public void delete(int idCurso);
 	
+	public void update(Curso c);
+	
+	public List <Curso> findByName(Curso c);
+	
+	//public List<Curso> findById(Curso c);
+	
 }

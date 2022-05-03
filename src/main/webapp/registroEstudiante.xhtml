@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+
+	<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="resources/css/loginStyle.css" />
+</h:head>
+<body>
+
+	<section class="vh-100" style="background-color: #508bfc;">
+	<div class="container py-2 h-100">
+		<div
+			class="row d-flex justify-content-center align-items-center h-100">
+			<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+				<div class="card shadow-2-strong" style="border-radius: 1rem;">
+					<div class="card-body p-3 text-center">
+
+						<h4 class="mb-2">U-HELP Estudiantes</h4>
+						<img class="logo mb-3" src="resources/img/logo.png" alt="icono" />
+
+						<h:form>
+							<div class="form-outline mb-2">
+								<p:inputText placeholder="Nombre"
+								value="#{estudianteController.est.nombre}"
+									class="form-control form-control-lg" required="true" />
+							</div>
+							<div class="form-outline mb-2">
+								<p:inputText placeholder="Apellido"
+								value="#{estudianteController.est.apellido}"
+									class="form-control form-control-lg" required="true" />
+							</div>
+							<div class="form-outline mb-2">
+								<p:inputText placeholder="Correo electrónico"
+								value="#{estudianteController.est.correo}"
+									class="form-control form-control-lg" required="true" />
+							</div>
+							<div class="form-outline mb-2">
+								<p:password placeholder="Contraseña" required="true"
+								value="#{estudianteController.est.password}"
+									class="form-control form-control-lg" />
+							</div>
+
+							<p:commandButton class="btn btn-lg btn-block boton mt-2 mb-2 " value="Registrar"
+								actionListener="#{estudianteController.insert()}"
+								action="inicio2.xhtml?faces-redirect=true" update="@form" />
+								 
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+
+	<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -4,11 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import pe.edu.upc.entidades.Academia;
-import pe.edu.upc.service.AcademiaService;
+import pe.edu.upc.entidades.Sede;
 
+import pe.edu.upc.service.AcademiaService;
+import pe.edu.upc.service.SedeService;
+
+@Named
+@RequestScoped
 public class AcademiaController {
 
 	@Inject
@@ -16,12 +23,18 @@ public class AcademiaController {
 	private Academia academia;
 	List<Academia> listaAcademia;
 
+	@Inject
+	private SedeService sService;
+	private List<Sede> listaSedes;
+	
 	// constructor
 	@PostConstruct
 	public void init() {
-		this.listaAcademia = new ArrayList<Academia>();
 		this.academia = new Academia();
+		this.listaAcademia = new ArrayList<Academia>();
+		this.listaSedes = new ArrayList<Sede>();
 		this.list();
+		this.listaSedes();
 	}
 	public void insert() {
 		try {
@@ -39,6 +52,14 @@ public class AcademiaController {
 			System.out.println("Error al listar en controller academia");
 		}
 	}
+	
+	public void listaSedes() {
+		try {
+			listaSedes = sService.list();
+		} catch (Exception e) {
+			System.out.println("Error al listar en controller");
+		}
+	}
 
 	public void delete(Academia academia) {
 		try {
@@ -48,6 +69,16 @@ public class AcademiaController {
 			System.out.println("Error al eliminar en elcontroller academia");
 		}
 	}
+	
+	public void findByNameCarrera() {
+
+		try {
+			listaAcademia = aService.findByNameAcademia(this.getAcademia());
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el controller curso");
+		}
+	}
+	
 	// métodos
 
 	public String newCarrera() {
@@ -78,6 +109,18 @@ public class AcademiaController {
 
 	public void setListaAcademia(List<Academia> listaAcademia) {
 		this.listaAcademia = listaAcademia;
+	}
+	public List<Sede> getListaSedes() {
+		return listaSedes;
+	}
+	public void setListaSedes(List<Sede> listaSedes) {
+		this.listaSedes = listaSedes;
+	}
+	public SedeService getsService() {
+		return sService;
+	}
+	public void setsService(SedeService sService) {
+		this.sService = sService;
 	}
 	
 	

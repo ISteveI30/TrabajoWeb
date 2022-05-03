@@ -1,5 +1,7 @@
 package pe.edu.upc.entidades;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +17,7 @@ public class Duracion {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idDuracion;
 
-	@Column(name = "nombre", nullable = false, length = 35)
+	@Column(name = "nombre", nullable = false, length = 50)
 	private String nombre;
 
 	
@@ -43,6 +45,23 @@ public class Duracion {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idDuracion);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Duracion other = (Duracion) obj;
+		return idDuracion == other.idDuracion;
 	}
 	
 }

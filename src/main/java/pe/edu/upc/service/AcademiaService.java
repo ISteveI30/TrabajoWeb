@@ -12,4 +12,5 @@ public interface AcademiaService {
 
 	public void delete(int idAcademia);
 	
+	public List <Academia> findByNameAcademia(Academia academia);
 }

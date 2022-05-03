@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-4 mt-5 border border-primary">
+					<h2>Editar Curso</h2>
+					<h:form>
+
+						<h:outputLabel value="Nombre:" for="nombre"
+							styleClass="control-label" />
+						<p:inputText id="nombre" styleClass="form-control"
+							value="#{cursoController.curso.nombre}" required="true" />
+
+
+						<h:outputLabel value="Fecha de Culminacion:" for="fecha"
+							styleClass="control-label" />
+						<p:calendar id="fecha" pattern="dd/MM/yyyy"
+							value="#{cursoController.curso.culminacion}"
+							styleClass="form-control" showOn="button" required="true" />
+						<h:outputLabel value="Precio" for="precio"
+							styleClass="control-label" />
+						<p:inputText id="precio" styleClass="form-control"
+							value="#{cursoController.curso.precio}" required="true" />
+
+						<h:outputLabel value="Vacantes " for="vacantes"
+							styleClass="control-label" />
+						<p:inputText id="vacantes" styleClass="form-control"
+							value="#{cursoController.curso.vacantes}" required="true" />
+
+						<h:outputLabel value="Carrera:" for="cboCarrera"
+							styleClass="control-label" />
+						<p:selectOneMenu id="cboCarrera"
+							value="#{cursoController.curso.carrera}"
+							converter="omnifaces.SelectItemsConverter"
+							styleClass="form-control">
+							<f:selectItems value="#{cursoController.listaCarreras}"
+								var="carr" itemLabel="#{carr.nombre}" itemValue="#{carr}" />
+						</p:selectOneMenu>
+
+						<h:outputLabel value="Duración:" for="cboDuracion"
+							styleClass="control-label" />
+						<p:selectOneMenu id="cboDuracion"
+							value="#{cursoController.curso.duracion}"
+							converter="omnifaces.SelectItemsConverter"
+							styleClass="form-control">
+							<f:selectItems value="#{cursoController.listaDuraciones}"
+								var="dur" itemLabel="#{dur.nombre}" itemValue="#{dur}" />
+						</p:selectOneMenu>
+
+
+						<p:commandButton value="Grabar" class="mt-3"
+							actionListener="#{cursoController.update()}"
+							action="listCurso?faces-redirect=true" update="@form" 
+							styleClass = "btn btn-primary"/>
+
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
+
+
+</html>

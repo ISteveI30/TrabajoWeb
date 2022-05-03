@@ -1,10 +1,14 @@
 package pe.edu.upc.entidades;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +20,7 @@ public class Academia {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idAcademia;
 	
-	@Column(name = "nombre", nullable = false, length = 35)
+	@Column(name = "nombre", nullable = false, length = 50)
 	private String nombre;
 	
 	@Column(name = "password", nullable =false , length = 20)
@@ -27,13 +31,18 @@ public class Academia {
 	
 	@Column(name = "telefono", nullable = false, length = 10)
 	private String telefono;
-
-	/*@Column(name = "telefono", nullable = false, length = 10)
-	private String telefono;*/
+	
+	@Column(name = "tipo", nullable = true)
+	private int tipo;
+	
+	@ManyToOne
+	@JoinColumn(name = "idSede", nullable=false)
+	private Sede sede;
 	
 	
 	public Academia() {
 		super();
+		this.tipo=2;
 	}
 
 	public Academia(int idAcademia, String nombre, String password, String correo, String telefono) {
@@ -74,6 +83,39 @@ public class Academia {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	public Sede getSede() {
+		return sede;
+	}
+
+	public void setSede(Sede sede) {
+		this.sede = sede;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idAcademia);
+	}	
+	
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Academia other = (Academia) obj;
+		return idAcademia == other.idAcademia;
 	}
 	
 }

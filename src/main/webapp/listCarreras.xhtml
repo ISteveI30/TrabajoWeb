@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/master.xhtml">
+
+	<ui:define name="content">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-8 mt-4">
+					<h:form>		
+					
+					<div class="row">
+                            <div class="col-sm-4">
+                                <h:outputLabel value="Ingrese nombre de la carrera a buscar:"
+                                    for="carrera" styleClass="control-label" />
+
+                                <p:inputText id="carrera" value="#{carreraController.carrera.nombre}"
+                                    styleClass="form-control" />
+                                <p:commandButton value="Buscar"
+                                    actionListener="#{carreraController.findByNameCarrera()}"
+                                    update="listaCarreras" />
+
+                            </div>
+
+                        </div>
+					
+						<p:dataTable id="listaCarreras" var="ca"
+							value="#{carreraController.listaCarrera}" paginator="true"
+							paginatorPosition="bottom" 
+							rows="6" emptyMessage="No existen registros" rowsIndexVar="item">
+							<f:facet name="header">
+                			Lista de Carreras
+           					 </f:facet>
+
+							<p:column headerText="Carrera">
+								<h:outputText value="#{ca.nombre}" />
+							</p:column>
+
+							<p:column headerText="Operación">
+								<h:commandLink action="listCarreras"
+									actionListener="#{carreraController.delete(ca)}">
+									Eliminar
+								</h:commandLink>
+							</p:column>
+							
+							<p:column headerText="">
+								<h:commandLink action="#{carreraController.UpdatePre(ca)}">
+										Editar
+								</h:commandLink>
+							</p:column>
+						</p:dataTable>
+					</h:form>
+
+				</div>
+				<div class="col-4 mt-4 border border-primary">
+					<h3 class="ms-5 mt-4 mb-3">Agregar Carrera</h3>
+					<h:form>
+						<h:outputLabel value="Periodo" for="nombre"
+							styleClass="control-label" />
+						<p:inputText id="nombre" styleClass="form-control"
+							value="#{carreraController.carrera.nombre}" required="true" />
+
+						<p:commandButton value="Grabar" class="mt-4"
+							actionListener="#{carreraController.insert()}"
+							action="listCarreras?faces-redirect=true" update="@form" />
+
+					</h:form>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
+</html>

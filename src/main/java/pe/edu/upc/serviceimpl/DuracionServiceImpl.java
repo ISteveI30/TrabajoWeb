@@ -28,5 +28,16 @@ public class DuracionServiceImpl implements DuracionService{
 	public void delete(int idDuracion) {
 		dDao.delete(idDuracion);
 	}
+
+	@Override
+	public List<Duracion> findByNameDuracion(Duracion duracion) {
+		return dDao.findByNameDuracion(duracion);
+	}
+
+	@Override
+	public void update(Duracion duracion) {
+		dDao.update(duracion);
+		
+	}
 	
 }

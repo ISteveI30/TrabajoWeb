@@ -8,41 +8,64 @@
 <h:head></h:head>
 <ui:composition template="master.xhtml">
 	<ui:define name="content">
-		<h2>Registro de Curso</h2>
-		<h:form>
+		<div class="container">
 
-			<h:outputLabel value="Id" for="id" styleClass="control-label" />
-			<p:inputText id="id" styleClass="form-control"
-				value="#{cursoController.curso.idCurso}" required="true" />
+			<div class="row">
+
+				<div class="col-4 mt-3 border border-primary">
+					<h2>Agregar Curso</h2>
+					<h:form>
+
+						<h:outputLabel value="Nombre:" for="nombre"
+							styleClass="control-label" />
+						<p:inputText id="nombre" styleClass="form-control"
+							value="#{cursoController.curso.nombre}" required="true" />
 
 
-			<h:outputLabel value="Nombre:" for="nombre"
-				styleClass="control-label" />
-			<p:inputText id="nombre" styleClass="form-control"
-				value="#{cursoController.curso.nombre}" required="true" />
+						<h:outputLabel value="Fecha de Culminacion:" for="fecha"
+							styleClass="control-label" />
+						<p:calendar id="fecha" pattern="dd/MM/yyyy"
+							value="#{cursoController.curso.culminacion}"
+							styleClass="form-control" showOn="button" required="true" />
+						<h:outputLabel value="Precio" for="precio"
+							styleClass="control-label" />
+						<p:inputText id="precio" styleClass="form-control"
+							value="#{cursoController.curso.precio}" required="true" />
+
+						<h:outputLabel value="Vacantes " for="vacantes"
+							styleClass="control-label" />
+						<p:inputText id="vacantes" styleClass="form-control"
+							value="#{cursoController.curso.vacantes}" required="true" />
+
+						<h:outputLabel value="Carrera:" for="cboCarrera"
+							styleClass="control-label" />
+						<p:selectOneMenu id="cboCarrera"
+							value="#{cursoController.curso.carrera}"
+							converter="omnifaces.SelectItemsConverter"
+							styleClass="form-control">
+							<f:selectItems value="#{cursoController.listaCarreras}"
+								var="carr" itemLabel="#{carr.nombre}" itemValue="#{carr}" />
+						</p:selectOneMenu>
+
+						<h:outputLabel value="Duración:" for="cboDuracion"
+							styleClass="control-label" />
+						<p:selectOneMenu id="cboDuracion"
+							value="#{cursoController.curso.duracion}"
+							converter="omnifaces.SelectItemsConverter"
+							styleClass="form-control">
+							<f:selectItems value="#{cursoController.listaDuraciones}"
+								var="dur" itemLabel="#{dur.nombre}" itemValue="#{dur}" />
+						</p:selectOneMenu>
 
 
-			<h:outputLabel value="Fecha de Culminacion:" for="fecha"
-				styleClass="control-label" />
-			<p:calendar id="fecha" pattern="dd/MM/yyyy"
-				value="#{cursoController.curso.culminacion}"
-				styleClass="form-control" showOn="button" required="true" />
-			<br />
+						<p:commandButton value="Grabar"
+							actionListener="#{cursoController.insert()}" class="mt-3"
+							action="listCurso?faces-redirect=true" update="@form" />
 
-			<h:outputLabel value="Precio" for="precio" styleClass="control-label" />
-			<p:inputText id="precio" styleClass="form-control"
-				value="#{cursoController.curso.precio}" required="true" />
-
-			<h:outputLabel value="Vacantes " for="vacantes"
-				styleClass="control-label" />
-			<p:inputText id="vacantes" styleClass="form-control"
-				value="#{cursoController.curso.vacantes}" required="true" />
-
-			<p:commandButton value="Grabar"
-				actionListener="#{cursoController.insert()}"
-				action="listCurso?faces-redirect=true" update="@form" />
-
-		</h:form>
+					</h:form>
+				</div>
+			</div>
+		</div>
 	</ui:define>
 
 </ui:composition>

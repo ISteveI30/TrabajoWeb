@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/masterEstudiante.xhtml">
+
+	<ui:define name="content">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-12 mt-3">
+					<h:form>
+					
+					<div class="row">
+							<div class="col-sm-4">
+								<h:outputLabel value="Ingrese nombre del curso favorito a buscar:"
+									for="curso" styleClass="control-label" />
+
+								<p:inputText id="curso" value="#{faCursoController.curso.nombre}"
+									styleClass="form-control" />
+								<p:commandButton value="Buscar"
+									actionListener="#{faCursoController.findByNameFavCurso()}"
+									update="listaCursos" />
+
+							</div>
+
+						</div>
+					
+					
+						<p:dataTable id="listaCursos" var="f"
+							value="#{faCursoController.listaFavoritos}" paginator="true"
+							paginatorPosition="bottom" rows="5"
+							emptyMessage="No hay cursos registrados" rowsIndexVar="item">
+							<f:facet name="header">
+                			Cursos Favoritos
+           					 </f:facet>
+
+							<p:column headerText="Nombre">
+								<h:outputText value="#{f.curso.nombre}" />
+							</p:column>
+
+							<p:column headerText="Fecha de culminación">
+								<h:outputText value="#{f.curso.culminacion}">
+									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+								</h:outputText>
+							</p:column>
+
+							<p:column headerText="Precio">
+								<h:outputText value="S/. #{f.curso.precio}.00" />
+							</p:column>
+
+							<p:column headerText="Vacantes">
+								<h:outputText value="#{f.curso.vacantes}" />
+							</p:column>
+
+							<p:column headerText="Carrera">
+								<h:outputText value="#{f.curso.carrera.nombre}" />
+							</p:column>
+
+							<p:column headerText="Duración">
+								<h:outputText value="#{f.curso.duracion.nombre}" />
+							</p:column>
+
+							<p:column headerText="Operación">
+								<h:commandLink action="favCurso?faces-redirect=true"
+									update="@form" actionListener="#{faCursoController.delete(f)}">
+									Eliminar
+								</h:commandLink>
+							</p:column>
+
+						</p:dataTable>
+					</h:form>
+
+				</div>
+
+			</div>
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>
+</html>

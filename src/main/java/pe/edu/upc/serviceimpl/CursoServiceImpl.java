@@ -30,4 +30,16 @@ public class CursoServiceImpl implements CursoService {
 		cDao.delete(idCurso);
 	}
 
+	@Override
+	public void update(Curso c) {
+		// TODO Auto-generated method stub
+		cDao.update(c);
+	}
+
+	@Override
+	public List<Curso> findByName(Curso c) {
+	   
+		return cDao.findByName(c);
+	}
+	
 }

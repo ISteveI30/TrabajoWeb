@@ -61,6 +61,29 @@ public class DuracionController {
 			System.out.println("Error al eliminar en elcontroller curso");
 		}
 	}
+	
+	public void findByNameCarrera() {
+
+		try {
+			listaDuracion= dService.findByNameDuracion(this.getDuracion());
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el controller curso");
+		}
+	}
+	
+	public String UpdatePre(Duracion duracion) {
+		this.setDuracion(duracion);
+		return "duracionUpdate.xhtml";
+	}
+	
+	public void update() {
+		
+		try {
+			dService.update(this.duracion);
+		} catch (Exception e) {
+			System.out.println("Error al modificar en el controlador de carrera");
+		}
+	}
 
 	public Duracion getDuracion() {
 		return duracion;

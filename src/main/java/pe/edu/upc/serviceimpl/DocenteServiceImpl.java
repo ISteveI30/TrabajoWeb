@@ -29,7 +29,19 @@ public class DocenteServiceImpl implements IDocenteService{
 		dDao.delete(idDocente);
 	}
 
-	
+	@Override
+	public void update(Docente d) {
+		// TODO Auto-generated method stub
+		dDao.update(d);
+	}
+
+
+	@Override
+	public List<Docente> findByNameDocente(Docente d) {
+		// TODO Auto-generated method stub
+		return dDao.findByNameDocente(d);
+	}
+
 
 	
 }

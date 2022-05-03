@@ -27,5 +27,11 @@ public class AcademiaServiceImpl implements AcademiaService{
 	public void delete(int idAcademia) {
 		aDao.delete(idAcademia);
 	}
+
+	@Override
+	public List<Academia> findByNameAcademia(Academia academia) {
+		
+		return aDao.findByNameAcademia(academia);
+	}
 	
 }

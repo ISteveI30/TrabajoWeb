@@ -2,6 +2,7 @@ package pe.edu.upc.dao;
 
 import java.util.List;
 
+
 import pe.edu.upc.entidades.Duracion;
 
 public interface DuracionDao {
@@ -12,4 +13,7 @@ public interface DuracionDao {
 
 	public void delete(int idDuracion);
 	
+	public List <Duracion> findByNameDuracion(Duracion duracion);
+	
+	public void update(Duracion duracion);
 }

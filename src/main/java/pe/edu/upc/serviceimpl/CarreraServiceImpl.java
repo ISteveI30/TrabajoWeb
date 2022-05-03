@@ -30,5 +30,17 @@ public class CarreraServiceImpl implements CarreraService{
 	public void delete(int idCarrera) {
 		cDao.delete(idCarrera);
 	}
+
+	@Override
+	public List<Carrera> findByNameCarrera(Carrera carrera) {
+		return cDao.findByNameCarrera(carrera);
+		
+	}
+
+	@Override
+	public void update(Carrera carrera) {
+		
+		cDao.update(carrera);
+	}
 	
 }

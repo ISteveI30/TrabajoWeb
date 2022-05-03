@@ -51,5 +51,30 @@ public class DuracionImpl implements DuracionDao {
 			System.out.println("Error al eliminar en el dao");
 		}
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Duracion> findByNameDuracion(Duracion duracion) {
+		List<Duracion> lista=new ArrayList<Duracion>();
+		try {
+		Query q=em.createQuery("from Duracion duracion where duracion.nombre like ?1");
+		q.setParameter(1, "%"+duracion.getNombre()+"%");
+		lista=(List<Duracion>)q.getResultList();
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el dao de curso");
+		}
+		return lista;
+	}
+
+	@Transactional
+	@Override
+	public void update(Duracion duracion) {
+		try {
+			em.merge(duracion);
+		} catch (Exception e) {
+			System.out.println("Error al buscar en el dao de duracion");
+		}
+		
+	}
 	
 }

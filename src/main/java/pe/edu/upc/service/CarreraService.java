@@ -12,5 +12,7 @@ public interface CarreraService {
 
 	public void delete(int idCarrera);
 	
+	public List <Carrera> findByNameCarrera(Carrera carrera);
 	
+	public void update(Carrera carrera);
 }

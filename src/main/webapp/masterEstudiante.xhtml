@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"></link>
+
+</h:head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light "> <a
+		class="navbar-brand ms-5" href="#">U-Help Estudiante</a>
+
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav ms-5">
+			<li class="nav-item active"><a class="nav-link ms-5"
+				href="inicio2.xhtml">Inicio </a></li>
+
+			<li class="nav-item"><a class="nav-link"
+				href="listCursoEstudiante.xhtml">Cursos</a></li>
+
+			<li class="nav-item"><a class="nav-link"
+				href="listDocenteEstudiante.xhtml">Docentes</a></li>
+
+			<li class="nav-item"><a class="nav-link"
+				href="listaAcademias.xhtml">Academias</a></li>
+
+
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+				role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Favoritos</a>
+				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<li><a class="dropdown-item" href="favCurso.xhtml">Cursos</a></li>
+					<li><a class="dropdown-item" href="favDocente.xhtml">Docentes</a></li>
+					<li><a class="dropdown-item" href="favAcademia.xhtml">Academias</a></li>
+				</ul></li>
+
+
+		</ul>
+
+	</div>
+	<div class="float-end me-5">
+		<a class="nav-link" href="perfilEstudiante.xhtml">Perfil</a>
+	</div>
+	</nav>
+
+	<div class="container">
+		<ui:insert name="content"></ui:insert>
+
+	</div>
+
+
+	<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

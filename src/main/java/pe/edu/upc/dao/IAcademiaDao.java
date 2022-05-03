@@ -12,4 +12,5 @@ public interface IAcademiaDao {
 	
 	public void delete(int Academia);
 	
+	public List <Academia> findByNameAcademia(Academia academia);
 }
