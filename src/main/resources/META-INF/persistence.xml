@@ -12,12 +12,15 @@
 		<class>pe.edu.upc.entidades.Docente</class>
 		<class>pe.edu.upc.entidades.Carrera</class>
 		<class>pe.edu.upc.entidades.Academia</class>
+<<<<<<< HEAD
 		<class>pe.edu.upc.entidades.Sede</class>
 		<class>pe.edu.upc.entidades.Promocion</class>
 		<class>pe.edu.upc.entidades.FavoritoDocente</class>
 		<class>pe.edu.upc.entidades.FaCurso</class>
 		<class>pe.edu.upc.entidades.FaAcademia</class>
 		<class>pe.edu.upc.entidades.Comentario</class>
+=======
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 
 		<properties>
 			<property

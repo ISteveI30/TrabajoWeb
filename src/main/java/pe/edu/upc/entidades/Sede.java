@@ -1,7 +1,10 @@
 package pe.edu.upc.entidades;
 
+<<<<<<< HEAD
 import java.util.Objects;
 
+=======
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +18,11 @@ public class Sede {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+<<<<<<< HEAD
 	private int idSede;
+=======
+	private int idSedes;
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 
 	@Column(name = "nombre", nullable = false, length = 35)
 	private String nombre;
@@ -24,6 +31,7 @@ public class Sede {
 		super();
 	}
 
+<<<<<<< HEAD
 	public Sede(int idSede, String nombre) {
 		super();
 		this.idSede = idSede;
@@ -36,6 +44,20 @@ public class Sede {
 
 	public void setIdSede(int idSede) {
 		this.idSede = idSede;
+=======
+	public Sede(int idSedes, String nombre) {
+		super();
+		this.idSedes = idSedes;
+		this.nombre = nombre;
+	}
+
+	public int getIdSedes() {
+		return idSedes;
+	}
+
+	public void setIdSedes(int idSedes) {
+		this.idSedes = idSedes;
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	}
 
 	public String getNombre() {
@@ -46,6 +68,7 @@ public class Sede {
 		this.nombre = nombre;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int hashCode() {
 		return Objects.hash(idSede, nombre);
@@ -62,5 +85,8 @@ public class Sede {
 		Sede other = (Sede) obj;
 		return idSede == other.idSede && Objects.equals(nombre, other.nombre);
 	}
+=======
+	
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	
 }

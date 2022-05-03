@@ -1,14 +1,20 @@
 package pe.edu.upc.entidades;
 
+<<<<<<< HEAD
 import java.util.Objects;
 
+=======
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+=======
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +27,7 @@ public class Promocion {
 	
 	@Column(name = "titulo", nullable = false, length = 50)
 	private String titulo;
+<<<<<<< HEAD
 	
 	@Column(name = "descripcion", nullable = false, length = 60)
 	private String descripcion;
@@ -35,6 +42,15 @@ public class Promocion {
 	
 	@ManyToOne
 	@JoinColumn(name = "idCurso", nullable=false)
+=======
+	@Column(name = "descripcion", nullable = false, length = 50)
+	private String descripcion;
+	
+	private Docente docente;
+	
+	private Academia academia;
+	
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	private Curso curso;
 	
 	public Promocion() {
@@ -99,6 +115,7 @@ public class Promocion {
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
+<<<<<<< HEAD
 
 	@Override
 	public int hashCode() {
@@ -116,5 +133,7 @@ public class Promocion {
 		Promocion other = (Promocion) obj;
 		return idPromocion == other.idPromocion;
 	}
+=======
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	
 }

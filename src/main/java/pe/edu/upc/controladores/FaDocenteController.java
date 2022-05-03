@@ -8,10 +8,15 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+<<<<<<< HEAD
 import pe.edu.upc.entidades.Docente;
 import pe.edu.upc.entidades.FavoritoDocente;
 import pe.edu.upc.service.FavDocenteService;
 import pe.edu.upc.service.IDocenteService;
+=======
+import pe.edu.upc.entidades.FavoritoDocente;
+import pe.edu.upc.service.FavDocenteService;
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 
 
 @Named
@@ -23,6 +28,7 @@ public class FaDocenteController {
 	private FavoritoDocente favorito;
 	List<FavoritoDocente> listaFavoritos;
 
+<<<<<<< HEAD
 	@Inject
 	private IDocenteService  dService;
 	private Docente docente;
@@ -39,6 +45,14 @@ public class FaDocenteController {
 		this.listaDocentes = new ArrayList<Docente>();
 		this.list();
 		this.listDocentes();
+=======
+	// constructor
+	@PostConstruct
+	public void init() {
+		this.listaFavoritos = new ArrayList<FavoritoDocente>();
+		this.favorito = new FavoritoDocente();
+		this.list();
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	}
 
 	// métodos
@@ -71,6 +85,7 @@ public class FaDocenteController {
 			fService.delete(favorito.getId());
 			this.list();
 		} catch (Exception e) {
+<<<<<<< HEAD
 			System.out.println("Error al eliminar en el controller ");
 		}
 	}
@@ -104,6 +119,12 @@ public class FaDocenteController {
 	}
 
 	
+=======
+			System.out.println("Error al eliminar en elcontroller ");
+		}
+	}
+
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 	public FavDocenteService getfService() {
 		return fService;
 	}
@@ -128,6 +149,7 @@ public class FaDocenteController {
 		this.listaFavoritos = listaFavoritos;
 	}
 
+<<<<<<< HEAD
 	public List<Docente> getListaDocentes() {
 		return listaDocentes;
 	}
@@ -144,4 +166,6 @@ public class FaDocenteController {
 		this.docente = docente;
 	}
 	
+=======
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 }

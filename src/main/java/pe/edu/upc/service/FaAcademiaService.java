@@ -2,7 +2,10 @@ package pe.edu.upc.service;
 
 import java.util.List;
 
+<<<<<<< HEAD
 import pe.edu.upc.entidades.Academia;
+=======
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 import pe.edu.upc.entidades.FaAcademia;
 
 public interface FaAcademiaService {
@@ -13,5 +16,9 @@ public interface FaAcademiaService {
 
 	public void delete(int idFavorito);
 	
+<<<<<<< HEAD
 	public Academia agregar(int idAcademia);
+=======
+	
+>>>>>>> 45adecbe1e425614d640425de4f65524e7cbe012
 }
